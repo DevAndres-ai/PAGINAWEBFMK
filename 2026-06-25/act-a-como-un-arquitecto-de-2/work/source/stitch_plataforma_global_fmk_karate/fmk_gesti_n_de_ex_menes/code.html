@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WKF Exams Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e2e2e2",
+                    "secondary-container": "#454747",
+                    "on-primary-container": "#757575",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-dim": "#131313",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-highest": "#353535",
+                    "inverse-on-surface": "#313030",
+                    "tertiary": "#e9c349",
+                    "on-primary-fixed-variant": "#474747",
+                    "surface-container": "#20201f",
+                    "secondary": "#c6c6c7",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#000000",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#393939",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-surface": "#e5e2e1",
+                    "surface-variant": "#353535",
+                    "outline-variant": "#4c4546",
+                    "on-tertiary-container": "#8f7200",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-surface-variant": "#cfc4c5",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed": "#1b1b1b",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "primary-container": "#000000",
+                    "on-secondary": "#2f3131",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffe088",
+                    "inverse-primary": "#5e5e5e",
+                    "surface-tint": "#c6c6c6",
+                    "outline": "#988e90",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-error": "#690005",
+                    "on-primary": "#303030",
+                    "background": "#131313",
+                    "primary": "#c6c6c6",
+                    "on-tertiary": "#3c2f00",
+                    "secondary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "20px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "stack-xl": "64px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "headline-xl-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-border-glow:hover {
+            border-color: #e9c349 !important;
+            box-shadow: 0 0 15px rgba(233, 195, 73, 0.1);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="dark overflow-x-hidden">
+<!-- SideNavBar (Execution from JSON) -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-background dark:bg-background border-r border-outline-variant flex flex-col py-stack-md z-[60]">
+<div class="px-6 mb-10">
+<h1 class="font-headline-md text-headline-md font-bold text-tertiary">WKF</h1>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-70">Official Platform</p>
+</div>
+<div class="flex-grow space-y-2">
+<a class="flex items-center px-6 py-3 space-x-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">newspaper</span>
+<span class="font-label-md">News</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-tertiary font-bold border-r-2 border-tertiary bg-surface-container-high duration-200" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="font-label-md">Exams</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-md">Rankings</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md">Athletes</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</div>
+<div class="px-6 mt-auto space-y-2">
+<button class="w-full py-3 bg-tertiary text-on-tertiary-fixed font-bold text-label-caps uppercase tracking-widest hover:opacity-90 transition-opacity">
+                Support
+            </button>
+<div class="pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center py-2 space-x-3 text-on-surface-variant hover:text-tertiary text-sm" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span>Help</span>
+</a>
+<a class="flex items-center py-2 space-x-3 text-on-surface-variant hover:text-tertiary text-sm" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Canvas Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-50 bg-background dark:bg-background border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop h-20">
+<div class="flex items-center space-x-4">
+<h2 class="font-headline-md text-headline-md font-extrabold uppercase tracking-tight text-tertiary">Exam Management</h2>
+</div>
+<div class="flex items-center space-x-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container border border-outline-variant text-on-surface px-4 py-2 w-64 focus:border-tertiary focus:ring-0 text-sm" placeholder="Search athletes or events..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant text-sm">search</span>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-on-surface hover:text-tertiary transition-colors cursor-pointer active:scale-95">notifications</button>
+<div class="h-10 w-10 bg-surface-container-high border border-outline-variant overflow-hidden cursor-pointer active:scale-95">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a high-ranking professional karateka wearing a traditional white gi with a prestigious black belt. The athlete's expression is focused and calm, set against a dark, minimalist Dojo background with dramatic side-lighting that highlights their disciplined posture and the texture of the gi fabric." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTSYeA0rRXUfiUaDjv37cqCuSzKI612qmghVXHNk8g29pCkCDlMDWFKjh7d_365ATuBsNIl1t0cO1i-3J_mzzrbCZ4Ea4Fkr9NlT06IGzYRYgDSmp21t2myKmWbo2Xq4tZRIy6XdDrS6aN2XMky6uYqX15k734lupvxlj7ZjaZEd7pFXdTA4VV5jDqZZraX7q0VoxtNanPyVVHPQZulLfcDpwuXijTiGkF6enOeealLQ16WNf1uXGdCDQxtT8TsnpkIPDIBsvftmxo"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Body -->
+<div class="p-margin-desktop space-y-stack-xl max-w-container-max mx-auto">
+<!-- SECTION 1: ASPIRANT DASHBOARD (Hero Area) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-8 space-y-stack-md">
+<div class="relative h-80 border-l-4 border-tertiary bg-surface-container-low p-8 flex flex-col justify-end overflow-hidden">
+<!-- Background Action Image -->
+<div class="absolute inset-0 z-0 opacity-20">
+<img class="w-full h-full object-cover" data-alt="Dramatic wide-angle shot of a karate tournament final at a prestigious international championship. An athlete is captured mid-air executing a dynamic side-kick. The lighting is high-contrast theatrical spotlighting against a pitch-black arena background, emphasizing the intensity and athletic excellence of the sport." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcE9ljNel2TlZQYhavjCFxSd3VShAhlZrXZHS8nt6n7xFnn4AN1712advE3g66wsqtO2Fk_twMTQ2zq4Dej-B96pVDu7Ecfe1MFAknH1uKhKiYnqOZxGsDnvbTCkTaV8yUcTbML12MeTWbcM_mrEccKMeEr9mOgo2WxTUVOk12nM3u-6JsHdCjNq2EnTrlAUOEPvSYigd7deAzRwh8HrcKQJ85-yOWg80-d4rW2kbHkeiO8IFWT0-uTiYkERNJcBQ7m8grZsAkpRTX"/>
+</div>
+<div class="relative z-10">
+<span class="font-label-caps text-tertiary tracking-widest bg-tertiary/10 px-3 py-1 mb-4 inline-block">NEXT MILESTONE</span>
+<h3 class="font-headline-xl text-headline-xl text-on-surface mb-2">Shodan (1st Dan)</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">The transition from student to practitioner. This examination tests your mastery of foundational Kihon and the precision of the Heian Kata series.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="bg-surface-container p-6 border border-white/10 gold-border-glow transition-all duration-300">
+<p class="font-label-caps text-on-surface-variant mb-2">EXAM DATE</p>
+<p class="font-headline-md text-headline-md text-tertiary">OCT 14, 2024</p>
+<p class="text-sm opacity-60">National Training Center</p>
+</div>
+<div class="bg-surface-container p-6 border border-white/10 gold-border-glow transition-all duration-300">
+<p class="font-label-caps text-on-surface-variant mb-2">TIME REMAINING</p>
+<p class="font-headline-md text-headline-md text-on-surface">42 DAYS</p>
+<p class="text-sm opacity-60">Preparation Window</p>
+</div>
+<div class="bg-surface-container p-6 border border-white/10 gold-border-glow transition-all duration-300">
+<p class="font-label-caps text-on-surface-variant mb-2">LOCATION</p>
+<p class="font-headline-md text-headline-md text-on-surface">TOKYO, JPN</p>
+<p class="text-sm opacity-60">Honbu Dojo</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 bg-surface-container-high border border-white/5 p-8 flex flex-col">
+<h4 class="font-label-caps text-on-surface mb-6 border-b border-white/10 pb-4">REQUIREMENTS CHECKLIST</h4>
+<ul class="space-y-6 flex-grow">
+<li class="flex items-start space-x-4">
+<div class="mt-1 w-5 h-5 border border-tertiary flex items-center justify-center bg-tertiary">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary font-bold">check</span>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Minimum Time in Grade</p>
+<p class="text-xs text-on-surface-variant">Completed 12 months as 1st Kyu</p>
+</div>
+</li>
+<li class="flex items-start space-x-4">
+<div class="mt-1 w-5 h-5 border border-tertiary flex items-center justify-center bg-tertiary">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary font-bold">check</span>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Seminar Credits</p>
+<p class="text-xs text-on-surface-variant">3/3 Mandatory technical clinics</p>
+</div>
+</li>
+<li class="flex items-start space-x-4">
+<div class="mt-1 w-5 h-5 border border-outline-variant flex items-center justify-center">
+</div>
+<div class="opacity-60">
+<p class="font-body-md font-bold text-on-surface">Official Recommendation</p>
+<p class="text-xs text-on-surface-variant">Sensei endorsement pending</p>
+</div>
+</li>
+</ul>
+<button class="mt-8 w-full py-4 bg-transparent border-2 border-white text-on-surface font-bold text-label-caps uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                        VIEW SYLLABUS
+                    </button>
+</div>
+</section>
+<!-- SECTION 2: ADMIN/DIRECTOR CANDIDATE LIST -->
+<section class="space-y-stack-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between border-b-2 border-tertiary pb-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">CANDIDATE ROSTER</h3>
+<p class="font-body-md text-on-surface-variant">Review and grading preparation for the upcoming Dan Examination.</p>
+</div>
+<div class="mt-4 md:mt-0 flex space-x-3">
+<button class="px-4 py-2 border border-white/20 text-xs font-bold uppercase tracking-tighter hover:border-tertiary transition-colors">FILTER BY REGION</button>
+<button class="px-4 py-2 border border-white/20 text-xs font-bold uppercase tracking-tighter hover:border-tertiary transition-colors">EXPORT LIST</button>
+</div>
+</div>
+<div class="overflow-x-auto scrollbar-hide">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="bg-surface-container-high text-tertiary font-label-caps border-b border-white/10">
+<th class="p-4 uppercase tracking-widest">Athlete</th>
+<th class="p-4 uppercase tracking-widest">Current Grade</th>
+<th class="p-4 uppercase tracking-widest">Target Grade</th>
+<th class="p-4 uppercase tracking-widest">Performance History</th>
+<th class="p-4 uppercase tracking-widest">Status</th>
+<th class="p-4 uppercase tracking-widest">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Candidate 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="p-4 flex items-center space-x-3">
+<div class="w-10 h-10 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Headshot of a focused young karate athlete in a dark environment. The lighting is cold and atmospheric, with a single light source highlighting the athlete's sharp gaze and professional martial arts attire. High-end athletic photography style, monochrome with gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQtFYBSvUFLdGCvWdB5jfK-mVtFpVbDG96ToXGO8P-0veQz8qSNE2qNO204sucyzdZB1fDqAzbn-dhrqq2rCR9XHF0hav4VOdmVeq92CxEoRBnZ8peHnEjfxPHlriyZ77Yal2rKu-DoLev6m5qqr-vIlN0E8-Vusmmc7SurwCAt8yzW4ubuwdCL5vZaA73J0owqDmDSZ3kdVg2vaLh74qCKPjb1ANPPuWQI_sof7ygfrfuQ-vOzGP_ClrGVozNGtgKPhDosZ1pINN-"/>
+</div>
+<span class="font-body-md font-bold">Kenji Nakamura</span>
+</td>
+<td class="p-4 text-on-surface-variant">1st Kyu (Brown)</td>
+<td class="p-4 text-tertiary font-bold">Shodan (Black)</td>
+<td class="p-4">
+<div class="flex items-center space-x-1">
+<div class="h-1.5 w-12 bg-tertiary"></div>
+<div class="h-1.5 w-12 bg-tertiary"></div>
+<div class="h-1.5 w-12 bg-tertiary"></div>
+<div class="h-1.5 w-12 bg-white/10"></div>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] font-bold text-green-400 border border-green-400/30 uppercase">READY</span>
+</td>
+<td class="p-4">
+<button class="text-tertiary hover:underline font-label-caps text-[12px] flex items-center">
+                                        GRADE NOW <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Candidate 2 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="p-4 flex items-center space-x-3">
+<div class="w-10 h-10 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Professional profile photo of a female karate athlete looking directly at the camera with intense focus. She is wearing a traditional gi with a brown belt visible. The background is a clean, dark grey concrete texture, lit to create a premium, authoritative sporting atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3VkAaXbod9yVWKx1prgfgM0DpZx3ghQu1LViJN7MmBI7VsBDqqFFbsuiga4vBbdZTSGBJmi-GulOa028ap0GbvHtmMwdu_oa6EjUwVaJGuh2NddHOom18qo4hP86B7lqcT27ltUTeW80e0d8DBD44LBDv4FaaIvj25BkB8A1vTnfCDl7GEDhvTLha8tCmw_0PhbV0FFXaWj4n4roe7twOuqeJgEZQTGvkzZMX2BcXpnO5VNuSzNhrFv2c206bspy5tZ49Olu4lNRZ"/>
+</div>
+<span class="font-body-md font-bold">Elena Rodriguez</span>
+</td>
+<td class="p-4 text-on-surface-variant">Shodan</td>
+<td class="p-4 text-tertiary font-bold">Nidan</td>
+<td class="p-4">
+<div class="flex items-center space-x-1">
+<div class="h-1.5 w-12 bg-tertiary"></div>
+<div class="h-1.5 w-12 bg-tertiary"></div>
+<div class="h-1.5 w-12 bg-white/10"></div>
+<div class="h-1.5 w-12 bg-white/10"></div>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] font-bold text-yellow-400 border border-yellow-400/30 uppercase">PENDING FEE</span>
+</td>
+<td class="p-4">
+<button class="text-on-surface-variant opacity-40 font-label-caps text-[12px] cursor-not-allowed">
+                                        GRADE NOW
+                                    </button>
+</td>
+</tr>
+<!-- Candidate 3 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="p-4 flex items-center space-x-3">
+<div class="w-10 h-10 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Portrait of a veteran karate master, focused and disciplined, in high-key cinematic lighting that emphasizes the wisdom and intensity in their eyes. Dark atmospheric backdrop with a hint of Dojo wooden elements. Professional portraiture style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPNhJ2GJZeaACkQStGcCbXv_LK_EjXV4ggisJdYGCrkY37Ug9A6rccNk3edHNHmuSt9jiDOoev8YeCKA9q47ZTgAQ2LCqfC4PB7tCoVWEh_gMmXavlYz91GCyzwJYFHgLTEETy9nTmodyIEYxWCK0mruGB8SWbet6E-zGqKS7yA30tgyTWElgxz8T9BuglmWlBJW5bJ-t_-u6PFy0LXg2bNPg2pVevw39vSA_rCTBasyyPknTjOjXJCXUd8YV_jrD8U4Pqc1SjH7ih"/>
+</div>
+<span class="font-body-md font-bold">Marcus Thorne</span>
+</td>
+<td class="p-4 text-on-surface-variant">Sandan</td>
+<td class="p-4 text-tertiary font-bold">Yondan</td>
+<td class="p-4">
+<div class="flex items-center space-x-1">
+<div class="h-1.5 w-12 bg-tertiary"></div>
+<div class="h-1.5 w-12 bg-tertiary"></div>
+<div class="h-1.5 w-12 bg-tertiary"></div>
+<div class="h-1.5 w-12 bg-tertiary"></div>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] font-bold text-green-400 border border-green-400/30 uppercase">READY</span>
+</td>
+<td class="p-4">
+<button class="text-tertiary hover:underline font-label-caps text-[12px] flex items-center">
+                                        GRADE NOW <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- SECTION 3: GRADING CRITERIA BENTO -->
+<section class="space-y-stack-md">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">TECHNICAL EVALUATION CRITERIA</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- KIHON Card -->
+<div class="bg-surface-container-high border border-white/5 p-8 relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[160px] text-white">fitness_center</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-tertiary mb-4">Kihon</h4>
+<p class="font-label-caps text-on-surface-variant mb-6">BASICS &amp; TECHNIQUE</p>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Correct Stance (Dachi)</span>
+<span class="text-tertiary font-bold">35%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[35%]"></div></div>
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Hip Rotation &amp; Power</span>
+<span class="text-tertiary font-bold">40%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[40%]"></div></div>
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Execution Speed</span>
+<span class="text-tertiary font-bold">25%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[25%]"></div></div>
+</div>
+</div>
+<!-- KATA Card -->
+<div class="bg-surface-container-high border border-tertiary p-8 relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[160px] text-tertiary">auto_awesome</span>
+</div>
+<div class="absolute top-4 right-4 bg-tertiary text-on-tertiary-fixed text-[10px] px-2 py-0.5 font-bold">PRIMARY FOCUS</div>
+<h4 class="font-headline-md text-headline-md text-tertiary mb-4">Kata</h4>
+<p class="font-label-caps text-on-surface-variant mb-6">FORM &amp; PRECISION</p>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Sequence Accuracy</span>
+<span class="text-tertiary font-bold">30%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[30%]"></div></div>
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Rhythm &amp; Timing</span>
+<span class="text-tertiary font-bold">30%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[30%]"></div></div>
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Spirit &amp; Focus (Kime)</span>
+<span class="text-tertiary font-bold">40%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[40%]"></div></div>
+</div>
+</div>
+<!-- KUMITE Card -->
+<div class="bg-surface-container-high border border-white/5 p-8 relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[160px] text-white">swords</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-tertiary mb-4">Kumite</h4>
+<p class="font-label-caps text-on-surface-variant mb-6">SPARRING &amp; APPLICATION</p>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Distance (Maai)</span>
+<span class="text-tertiary font-bold">40%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[40%]"></div></div>
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Counter-Attack Timing</span>
+<span class="text-tertiary font-bold">30%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[30%]"></div></div>
+<div class="flex justify-between items-end">
+<span class="text-xs uppercase font-bold tracking-tighter">Technical Control</span>
+<span class="text-tertiary font-bold">30%</span>
+</div>
+<div class="h-1 bg-white/10 w-full"><div class="h-full bg-tertiary w-[30%]"></div></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Admin FAB -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-tertiary text-on-tertiary-fixed shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 group">
+<span class="material-symbols-outlined text-3xl">add</span>
+<div class="absolute right-20 bg-tertiary text-on-tertiary-fixed px-4 py-2 font-bold text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">NEW EXAM SESSION</div>
+</button>
+<!-- Footer -->
+<footer class="mt-stack-xl border-t border-white/5 py-10 px-margin-desktop bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center opacity-40 text-xs tracking-widest font-label-caps">
+<div class="mb-4 md:mb-0">© 2024 WORLD KARATE FEDERATION. ALL RIGHTS RESERVED.</div>
+<div class="flex space-x-6">
+<a class="hover:text-tertiary transition-colors" href="#">PRIVACY</a>
+<a class="hover:text-tertiary transition-colors" href="#">GOVERNANCE</a>
+<a class="hover:text-tertiary transition-colors" href="#">TECHNICAL MANUAL</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interactions for tables and hover states
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.querySelector('button')?.classList.add('translate-x-1');
+            });
+            row.addEventListener('mouseleave', () => {
+                row.querySelector('button')?.classList.remove('translate-x-1');
+            });
+        });
+
+        // Simulating loading state for requirements
+        setTimeout(() => {
+            console.log("Exam modules initialized.");
+        }, 500);
+    </script>
+</body></html>

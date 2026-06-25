@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WKF News | World Karate Federation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e2e2e2",
+                    "secondary-container": "#454747",
+                    "on-primary-container": "#757575",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-dim": "#131313",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-highest": "#353535",
+                    "inverse-on-surface": "#313030",
+                    "tertiary": "#e9c349",
+                    "on-primary-fixed-variant": "#474747",
+                    "surface-container": "#20201f",
+                    "secondary": "#c6c6c7",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#000000",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#393939",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-surface": "#e5e2e1",
+                    "surface-variant": "#353535",
+                    "outline-variant": "#4c4546",
+                    "on-tertiary-container": "#8f7200",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-surface-variant": "#cfc4c5",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed": "#1b1b1b",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "primary-container": "#000000",
+                    "on-secondary": "#2f3131",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffe088",
+                    "inverse-primary": "#5e5e5e",
+                    "surface-tint": "#c6c6c6",
+                    "outline": "#988e90",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-error": "#690005",
+                    "on-primary": "#303030",
+                    "background": "#131313",
+                    "primary": "#c6c6c6",
+                    "on-tertiary": "#3c2f00",
+                    "secondary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "20px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "stack-xl": "64px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "headline-xl-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #000000; color: #e5e2e1; }
+        .gold-border-gradient {
+            border-image: linear-gradient(to bottom, #d4af37, transparent) 1;
+        }
+        .athlete-card-hover:hover .card-border {
+            border-color: #e9c349 !important;
+        }
+        .text-shadow-premium {
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- Side Navigation Shell (from JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-background border-r border-outline-variant flex flex-col py-stack-md z-[60]">
+<div class="px-6 mb-10">
+<h1 class="font-headline-md text-headline-md font-bold text-tertiary">WKF</h1>
+<p class="text-on-surface-variant font-label-md text-[10px] uppercase tracking-widest">Official Platform</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Active State for News -->
+<a class="flex items-center px-6 py-3 text-tertiary font-bold border-r-2 border-tertiary bg-surface-container-high transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">newspaper</span>
+<span class="font-label-md text-label-md">News</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">event</span>
+<span class="font-label-md text-label-md">Events</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">military_tech</span>
+<span class="font-label-md text-label-md">Rankings</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">groups</span>
+<span class="font-label-md text-label-md">Athletes</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-6 space-y-4">
+<button class="w-full bg-tertiary text-on-tertiary font-bold py-3 text-label-caps uppercase tracking-tighter">Support</button>
+<div class="pt-4 border-t border-outline-variant">
+<a class="flex items-center py-2 text-on-surface-variant hover:text-tertiary transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="flex items-center py-2 text-on-surface-variant hover:text-tertiary transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Top App Bar (from JSON) -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-20 ml-64 max-w-[calc(100%-16rem)] bg-background sticky top-0 z-50 border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md font-extrabold uppercase tracking-tight text-tertiary">World Karate Federation</h2>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container border-outline-variant border px-4 py-2 text-label-md w-64 focus:ring-1 focus:ring-tertiary outline-none" placeholder="Search News..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-colors hover:text-tertiary">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-colors hover:text-tertiary">account_circle</span>
+<div class="h-8 w-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-size: 18px;">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-margin-desktop min-h-screen">
+<!-- Featured News Hero Section -->
+<section class="mb-stack-xl relative group">
+<div class="relative h-[600px] w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-action, cinematic photograph of a karate athlete performing a mid-air kick during an international championship. The athlete is wearing a pristine white karate-gi with gold-embroidered federation patches. The lighting is dramatic and high-contrast, with spotlights highlighting the dust in the air against a deep black background. The overall aesthetic is professional, intense, and prestigious, embodying athletic minimalism." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALeO-We1rO_sQGNa6mOazEiS-X0KDt4h1YV_FDr8HqKTjI9akRZU3ld5fe1vV1x94Bs5__rZlu6T4EJwLn9xbZ34wVSRAPhX3lB5hyjtoY-tN2hmmVn49rJflZ11XrXI7W1Wf05WKQfh68p_2K9ykzaSt0mcCv14TtDHbS2RFQBxzmmqPNtC6UKQqxesBd9Tx95xVRJp8yH3oZ2QIFQWkOj6W3BosFYHAGOeROp9kS9Rkp03NviFFIHpwLhfZpGT9VWI5pZ4938LdP')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-stack-xl max-w-3xl">
+<span class="bg-tertiary text-on-tertiary px-4 py-1 font-label-caps uppercase text-label-md mb-stack-sm inline-block">World Championship Updates</span>
+<h1 class="font-headline-xl text-headline-xl text-white text-shadow-premium leading-none mb-stack-md">ROAD TO BUDAPEST 2024: QUALIFICATION FINALS</h1>
+<p class="text-on-surface-variant font-body-lg mb-stack-lg line-clamp-2">Experience the intensity as elite karatekas from 120 nations battle for the final qualifying spots in the most prestigious event of the competitive calendar.</p>
+<div class="flex gap-4">
+<button class="bg-tertiary text-on-tertiary px-8 py-4 font-bold font-headline-md uppercase text-label-md hover:brightness-110 transition-all">Read Story</button>
+<button class="border-2 border-white text-white px-8 py-4 font-bold font-headline-md uppercase text-label-md hover:bg-white hover:text-black transition-all">View Brackets</button>
+</div>
+</div>
+</div>
+</section>
+<!-- News Filters & Categories -->
+<div class="flex items-center justify-between mb-stack-lg border-b border-outline-variant pb-stack-sm">
+<div class="flex gap-stack-lg">
+<button class="text-tertiary font-bold border-b-2 border-tertiary pb-stack-sm text-label-caps uppercase">All News</button>
+<button class="text-on-surface-variant hover:text-tertiary transition-colors pb-stack-sm text-label-caps uppercase">Official</button>
+<button class="text-on-surface-variant hover:text-tertiary transition-colors pb-stack-sm text-label-caps uppercase">Tournament</button>
+<button class="text-on-surface-variant hover:text-tertiary transition-colors pb-stack-sm text-label-caps uppercase">Seminar</button>
+<button class="text-on-surface-variant hover:text-tertiary transition-colors pb-stack-sm text-label-caps uppercase">Rankings</button>
+</div>
+<div class="flex items-center gap-stack-sm text-on-surface-variant">
+<span class="font-label-md">Sort by:</span>
+<select class="bg-transparent border-none text-tertiary font-bold focus:ring-0 cursor-pointer">
+<option>Latest</option>
+<option>Popular</option>
+</select>
+</div>
+</div>
+<!-- Masonry Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- News Card 1: Official -->
+<article class="athlete-card-hover group flex flex-col bg-surface-container border border-white/10 card-border transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A formal photograph of the World Karate Federation board members in a luxury conference room. The atmosphere is corporate and prestigious, with a dark wood table and high-end office furniture. A gold WKF logo is visible on the wall behind them. The lighting is soft and professional, reflecting a serious federation announcement setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAh_cq0er_oElpvQE3HgtlYVvWoFjjiZG11XDCLWjEqNvpYRScPgI1NSXerI9GD48i4D9D74llJjfxwyma0q536FppJ4UM86OUiUpC9PDSo5FPq_ua0_IoWoPbqkxzOaepo30caaDfXGnHKyxlIev1byxU--qQEU0EjsOh5TTHdRnHKsLhDh3bDCSDsF20SpQQzTeMHfe1JVPKnIDxIn8MLZ9M2F7tLca8hDq4w2PntqRsqT-BchXuQKhoXhOTwNc4IYKU1abLlbr1-')"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-black/80 backdrop-blur-md border border-white/20 text-white px-3 py-1 font-label-caps text-[10px] uppercase">Official</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<time class="text-on-tertiary-container font-label-md text-xs mb-2">OCT 14, 2023</time>
+<h3 class="font-headline-md text-white mb-4 group-hover:text-tertiary transition-colors">New Global Competition Rules Effective January 2024</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">The WKF Executive Committee has ratified the updated competition ruleset focused on increasing dynamic exchanges and athlete safety.</p>
+<a class="text-tertiary font-bold text-label-caps uppercase flex items-center gap-2 group/link" href="#">
+                        Read More 
+                        <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- News Card 2: Tournament -->
+<article class="athlete-card-hover group flex flex-col bg-surface-container border-t-2 border-tertiary card-border transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Close up of a karate black belt tied perfectly on a white gi. The texture of the belt weave is highly detailed. In the background, out of focus, two athletes are seen sparring on blue and red tatami mats. The gold accent of the federation logo on the belt is the primary focal point. High contrast, sharp focus, athletic mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDblplOIEEOui-uBjMFXKYQe4kUZNQp2h0HM_Wr6zygZrTZsQBVlAP2fhvwbsd6ohBiJ9rsd3eC3fvTpZsPzonwUt3N4XQ3et9RZh9-0u5G35zi5_5gRJ_3yzWZH9ARNLhJgEzqdEE5lt8zRAyKAMaWF41fev8fgrad7nGWagRp3WKkdrBLcPt2ZzIbJ9l_lVg9LciCSZpBOnQIvYwdDePStrEfTKatZaVHKJlAvZ2RXDogwnmhxyi3sdqUj7Hbhd1qFTprGsJ6UWR-')"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary text-on-tertiary px-3 py-1 font-label-caps text-[10px] uppercase">Tournament</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<time class="text-on-tertiary-container font-label-md text-xs mb-2">OCT 12, 2023</time>
+<h3 class="font-headline-md text-white mb-4 group-hover:text-tertiary transition-colors">Grand Winner 2023 Awards Ceremony in Madrid</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">A celebration of excellence: Meet the karatekas who dominated the Karate 1-Premier League season to claim the prestigious Grand Winner titles.</p>
+<a class="text-tertiary font-bold text-label-caps uppercase flex items-center gap-2 group/link" href="#">
+                        Read More 
+                        <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- News Card 3: Seminar -->
+<article class="athlete-card-hover group flex flex-col bg-surface-container border border-white/10 card-border transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A grand master in a traditional black karate gi teaching a group of focused students in a minimalist Japanese dojo. High ceilings, wooden floors, and soft morning light streaming through paper shoji screens. The atmosphere is one of profound respect and discipline. Monochromatic tones with subtle warm wood accents." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDflYwKJeSmH9pZ3eJAjRC5-tRKkfhobuaRZ7I9pERsu48cI4XhYjCny1WS_YsdPmHzWYvUrCXXP7-lFEj17DnpekXkWjHNO6cQ22BzfrF5b7AMm5sYf2chGO-EHQf3EGK8LISAsK6wLoLxiCoczkQ7GHHK_Tsmkx8_TIFb05BFHQYdSNZxhCgWlqDQrZRbV5gLEu5WoYZ_kIdJX1Ijxcrs-N0EWcwPNPLBAuhkt5y6htXadr3ZLKRfkgn-T180aPfhNSjVIRzHIztM')"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-black/80 backdrop-blur-md border border-white/20 text-white px-3 py-1 font-label-caps text-[10px] uppercase">Seminar</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<time class="text-on-tertiary-container font-label-md text-xs mb-2">OCT 10, 2023</time>
+<h3 class="font-headline-md text-white mb-4 group-hover:text-tertiary transition-colors">Master Class Series: Traditional Kumite Techniques</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">Registration is now open for the European High Performance Seminar featuring legendary champions as guest instructors.</p>
+<a class="text-tertiary font-bold text-label-caps uppercase flex items-center gap-2 group/link" href="#">
+                        Read More 
+                        <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- News Card 4: Official (Large Horizontal) -->
+<article class="athlete-card-hover group lg:col-span-2 flex flex-col md:flex-row bg-surface-container border border-white/10 card-border transition-all duration-300 overflow-hidden">
+<div class="relative w-full md:w-1/2 h-80 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A modern architectural shot of the WKF headquarters facade at night. The building features sleek glass and steel with dramatic upward-facing gold lighting that illuminates the federation's name. It looks like a high-end corporate office building in a major world capital. Very clean, minimalist, and expensive looking." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNGL86lKW6CGbBqovRk2lxXeZEW1NEsEqbumdnPhS-NBwO-ae9Nae6OmGBr7c5EfKn1gz2P_RePOjZ2nbUq9iuZIZYMmYkKH8WYOe5_q04G54rwT9ZSlSO3Xauu72TbK4Tjc1dYk_1ZL46z7YbIpBE5yuLazH0tpYdr8B6yCPVnLMvTBQ7WItCV-7i6rwaLOPqB4A6AEzPEkO6_EGXPMeNkYjMA4OgWz3MUSV0ramMSgQqwbhNaqSDGBYhbK8e-JyzgwlDbBO6oXT9')"></div>
+</div>
+<div class="p-10 flex-1 flex flex-col justify-center">
+<div class="mb-4">
+<span class="bg-black/80 backdrop-blur-md border border-white/20 text-white px-3 py-1 font-label-caps text-[10px] uppercase">Official</span>
+</div>
+<time class="text-on-tertiary-container font-label-md text-xs mb-2">OCT 08, 2023</time>
+<h3 class="font-headline-lg text-white mb-4 group-hover:text-tertiary transition-colors">Financial Report 2023: Sustainable Growth for World Karate</h3>
+<p class="text-on-surface-variant text-body-md mb-8">Detailed insights into the federation's strategic investments into youth development programs and digital transformation across five continents.</p>
+<a class="inline-block text-tertiary font-bold text-label-caps uppercase border-b border-tertiary py-1 w-fit group/link" href="#">
+                        Download Full Report
+                    </a>
+</div>
+</article>
+<!-- News Card 5: Tournament -->
+<article class="athlete-card-hover group flex flex-col bg-surface-container border border-white/10 card-border transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="An action shot of two female karatekas in a intense point-sparring match. One athlete is landing a precise gyaku-zuki punch. Their facial expressions show pure determination. The blue and red karate gloves and foot protectors stand out against their white gi. The background shows a crowded arena with blurred lights and spectators." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBu7VVMQv7oIuY_pLK7gxm2Vsks9n_YvxnFOaB823THndNL9J_as7vCctJfudKO5HzgHfPgLaR4B7tROooJDByEkZ8LT-g9jNi8IAmlbnEdad51y5VP2Gdd-jjZ-i_Z2IZOFC495D_etZmTiRsQwKrsmIVc1D2BS2ahyA8W1w2h7-ztPfnoHkjciu5brmHFZdJGBaSFfbbB2TRf_ppfcNc3PzhejQoBAMR8C98YeIUDUEwtR4jdk1FSJ7AYjvfthM1Vqndl8VHTEB0s')"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary text-on-tertiary px-3 py-1 font-label-caps text-[10px] uppercase">Tournament</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<time class="text-on-tertiary-container font-label-md text-xs mb-2">OCT 05, 2023</time>
+<h3 class="font-headline-md text-white mb-4 group-hover:text-tertiary transition-colors">Karate 1-Youth League: Venice 2023 Record Attendance</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">Over 3,000 young athletes from 80 countries have registered for the upcoming Venice event, breaking all previous records.</p>
+<a class="text-tertiary font-bold text-label-caps uppercase flex items-center gap-2 group/link" href="#">
+                        Read More 
+                        <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-stack-xl flex justify-center items-center gap-4">
+<button class="h-10 w-10 flex items-center justify-center border border-outline-variant text-on-surface-variant hover:border-tertiary hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center bg-tertiary text-on-tertiary font-bold">1</button>
+<button class="h-10 w-10 flex items-center justify-center border border-outline-variant text-on-surface-variant hover:border-tertiary hover:text-tertiary transition-colors">2</button>
+<button class="h-10 w-10 flex items-center justify-center border border-outline-variant text-on-surface-variant hover:border-tertiary hover:text-tertiary transition-colors">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="h-10 w-10 flex items-center justify-center border border-outline-variant text-on-surface-variant hover:border-tertiary hover:text-tertiary transition-colors">12</button>
+<button class="h-10 w-10 flex items-center justify-center border border-outline-variant text-on-surface-variant hover:border-tertiary hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer for canvas context -->
+<footer class="ml-64 p-margin-desktop bg-surface-container-lowest border-t border-outline-variant mt-stack-xl">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+<div>
+<h4 class="font-headline-md text-tertiary mb-6">WKF</h4>
+<p class="text-on-surface-variant text-sm">The world governing body for the sport of Karate, recognized by the International Olympic Committee.</p>
+</div>
+<div>
+<h5 class="text-white font-label-caps uppercase mb-6">Explore</h5>
+<ul class="space-y-3 text-on-surface-variant text-sm">
+<li><a class="hover:text-tertiary transition-colors" href="#">News Archive</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Live Streaming</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Anti-Doping</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Refereeing</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-label-caps uppercase mb-6">Legal</h5>
+<ul class="space-y-3 text-on-surface-variant text-sm">
+<li><a class="hover:text-tertiary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Media Guidelines</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-label-caps uppercase mb-6">Newsletter</h5>
+<div class="flex">
+<input class="bg-black border border-outline-variant px-4 py-2 flex-1 outline-none focus:border-tertiary" placeholder="Email Address" type="email"/>
+<button class="bg-tertiary text-on-tertiary px-4 py-2 material-symbols-outlined">send</button>
+</div>
+</div>
+</div>
+<div class="text-center text-[10px] text-on-surface-variant font-label-md tracking-widest uppercase py-6 border-t border-outline-variant/30">
+            © 2023 World Karate Federation. All Rights Reserved.
+        </div>
+</footer>
+<script>
+        // Micro-interaction for hover glow on gold elements
+        document.querySelectorAll('.athlete-card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 0 20px rgba(233, 195, 73, 0.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body></html>

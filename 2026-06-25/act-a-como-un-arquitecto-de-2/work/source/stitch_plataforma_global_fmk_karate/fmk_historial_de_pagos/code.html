@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WKF | Payments &amp; Billing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e2e2e2",
+                    "secondary-container": "#454747",
+                    "on-primary-container": "#757575",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-dim": "#131313",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-highest": "#353535",
+                    "inverse-on-surface": "#313030",
+                    "tertiary": "#e9c349",
+                    "on-primary-fixed-variant": "#474747",
+                    "surface-container": "#20201f",
+                    "secondary": "#c6c6c7",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#000000",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#393939",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-surface": "#e5e2e1",
+                    "surface-variant": "#353535",
+                    "outline-variant": "#4c4546",
+                    "on-tertiary-container": "#8f7200",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-surface-variant": "#cfc4c5",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed": "#1b1b1b",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "primary-container": "#000000",
+                    "on-secondary": "#2f3131",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffe088",
+                    "inverse-primary": "#5e5e5e",
+                    "surface-tint": "#c6c6c6",
+                    "outline": "#988e90",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-error": "#690005",
+                    "on-primary": "#303030",
+                    "background": "#131313",
+                    "primary": "#c6c6c6",
+                    "on-tertiary": "#3c2f00",
+                    "secondary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "20px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "stack-xl": "64px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "headline-xl-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e9c349;
+            border-radius: 10px;
+        }
+        /* Glass Effect */
+        .glass-card {
+            background: #1A1A1A;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gold-border {
+            border: 1px solid #e9c349;
+        }
+        .gold-glow:hover {
+            border-color: #e9c349;
+            box-shadow: 0 0 15px rgba(233, 195, 73, 0.2);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-background border-r border-outline-variant flex flex-col py-stack-md z-[60]">
+<div class="px-6 mb-stack-xl">
+<div class="font-headline-md text-headline-md font-bold text-tertiary">WKF</div>
+<div class="font-label-md text-label-md text-on-surface-variant opacity-70">Official Platform</div>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">newspaper</span>
+<span class="font-label-md">News</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="font-label-md">Events</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-md">Rankings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md">Athletes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-tertiary font-bold border-r-2 border-tertiary bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md">Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-2">
+<button class="w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md">Help</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-error transition-colors duration-200">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="docked full-width top-0 sticky z-50 bg-background border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop h-20 ml-64 max-w-[calc(100%-16rem)]">
+<h1 class="font-headline-md text-headline-md font-extrabold uppercase tracking-tight text-tertiary">Payments &amp; Billing</h1>
+<div class="flex items-center gap-stack-lg">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-lowest border border-white/20 px-10 py-2 rounded-none focus:border-tertiary focus:ring-0 text-body-md w-64 transition-all" placeholder="Search transactions..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface hover:text-tertiary transition-colors active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 overflow-hidden border border-tertiary/30">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a high-ranking karate official with a disciplined expression, set against a dark, moody studio background with subtle golden rim lighting. The style is sharp, corporate luxury, reflecting the prestigious nature of the World Karate Federation. The color palette is dominated by deep blacks and warm gold highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXUoaD2PFSYQwJt7Jy59FUvHU6j2XhW5OKzSEi17NByiRdExv5NPeyfLoH8wwiTRu5zqGHZIZLeMFvJV4oNEP6swuZqF4vD5Bf0E9YDEFLUfnHaHohmFvnXbHFqS1uiF-sSvoKY4rdhmE1iXuW7l8BV5x_iE7L81wYdeMUl58v7W6Ja1j4lMR_4bJDaZiwLMZLKumsWnyDBOTdf0sw4CHDLSSPxKuZZ7BRKVahC400lMLfLjKvFSpN0BIdG5RoyuA_aQ1OhNpclHFd"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 p-margin-desktop max-w-container-max mx-auto min-h-screen">
+<!-- Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg mb-stack-xl">
+<!-- Total Balance Card -->
+<div class="glass-card p-stack-lg relative overflow-hidden flex flex-col justify-between min-h-[180px]">
+<div class="z-10">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">TOTAL BALANCE</p>
+<h2 class="font-headline-lg text-headline-lg text-white">$1,240.50</h2>
+</div>
+<div class="z-10 flex items-center gap-2 text-tertiary mt-4 cursor-pointer group">
+<span class="font-label-md">Pay Outstanding</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<!-- Abstract Decorative Element -->
+<div class="absolute -right-10 -bottom-10 opacity-5">
+<span class="material-symbols-outlined text-[120px]">account_balance_wallet</span>
+</div>
+</div>
+<!-- Pending Fees Card -->
+<div class="glass-card p-stack-lg border-l-4 border-tertiary flex flex-col justify-between min-h-[180px]">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">PENDING FEES</p>
+<h2 class="font-headline-lg text-headline-lg text-tertiary">$450.00</h2>
+</div>
+<p class="text-body-md text-on-surface-variant">Due in 5 days (Event Registration)</p>
+</div>
+<!-- Saved Payment Methods -->
+<div class="glass-card p-stack-lg flex flex-col justify-between min-h-[180px]">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">PRIMARY PAYMENT</p>
+<div class="flex items-center gap-3 mt-4">
+<div class="bg-surface-container-high px-2 py-1 border border-white/10">
+<span class="material-symbols-outlined text-white">credit_card</span>
+</div>
+<div>
+<p class="text-body-md text-white font-bold">VISA •••• 8842</p>
+<p class="text-label-md text-on-surface-variant">Expires 12/26</p>
+</div>
+</div>
+</div>
+<button class="text-on-surface font-label-md hover:text-tertiary transition-colors self-start mt-4">Manage Methods</button>
+</div>
+</div>
+<!-- Transactions Section -->
+<section class="glass-card overflow-hidden">
+<!-- Header & Filters -->
+<div class="p-stack-lg border-b border-outline-variant flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
+<h3 class="font-headline-md text-headline-md text-white">Transaction History</h3>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="flex bg-surface-container-low p-1 border border-outline-variant">
+<button class="px-4 py-2 text-label-md font-bold bg-tertiary text-on-tertiary">All</button>
+<button class="px-4 py-2 text-label-md text-on-surface-variant hover:text-white transition-colors">Paid</button>
+<button class="px-4 py-2 text-label-md text-on-surface-variant hover:text-white transition-colors">Pending</button>
+<button class="px-4 py-2 text-label-md text-on-surface-variant hover:text-white transition-colors">Failed</button>
+</div>
+<button class="bg-white/5 border border-white/10 p-2 text-on-surface hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Desktop Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="p-6 font-label-caps text-label-caps text-tertiary">TRANSACTION ID</th>
+<th class="p-6 font-label-caps text-label-caps text-tertiary">DATE</th>
+<th class="p-6 font-label-caps text-label-caps text-tertiary">DESCRIPTION</th>
+<th class="p-6 font-label-caps text-label-caps text-tertiary">AMOUNT</th>
+<th class="p-6 font-label-caps text-label-caps text-tertiary text-center">STATUS</th>
+<th class="p-6 font-label-caps text-label-caps text-tertiary text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-6 text-body-md font-bold text-white">#WKF-882190</td>
+<td class="p-6 text-body-md text-on-surface-variant">Oct 12, 2023</td>
+<td class="p-6 text-body-md text-on-surface">World Championship Entry - Paris</td>
+<td class="p-6 text-body-md font-bold text-white">$250.00</td>
+<td class="p-6 text-center">
+<span class="inline-block px-3 py-1 bg-green-900/30 text-green-400 text-label-caps border border-green-800/50">PAID</span>
+</td>
+<td class="p-6 text-right">
+<button class="text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-6 text-body-md font-bold text-white">#WKF-882145</td>
+<td class="p-6 text-body-md text-on-surface-variant">Oct 10, 2023</td>
+<td class="p-6 text-body-md text-on-surface">Official WKF Gi - Performance Elite</td>
+<td class="p-6 text-body-md font-bold text-white">$450.00</td>
+<td class="p-6 text-center">
+<span class="inline-block px-3 py-1 bg-tertiary/10 text-tertiary text-label-caps border border-tertiary/30">PENDING</span>
+</td>
+<td class="p-6 text-right">
+<button class="text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-6 text-body-md font-bold text-white">#WKF-881902</td>
+<td class="p-6 text-body-md text-on-surface-variant">Sep 28, 2023</td>
+<td class="p-6 text-body-md text-on-surface">Ranking Maintenance Fee (Annual)</td>
+<td class="p-6 text-body-md font-bold text-white">$120.00</td>
+<td class="p-6 text-center">
+<span class="inline-block px-3 py-1 bg-error-container/30 text-error text-label-caps border border-error-container/50">FAILED</span>
+</td>
+<td class="p-6 text-right">
+<button class="text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-6 text-body-md font-bold text-white">#WKF-880112</td>
+<td class="p-6 text-body-md text-on-surface-variant">Aug 15, 2023</td>
+<td class="p-6 text-body-md text-on-surface">Training Seminar - Kata Mastery</td>
+<td class="p-6 text-body-md font-bold text-white">$150.00</td>
+<td class="p-6 text-center">
+<span class="inline-block px-3 py-1 bg-green-900/30 text-green-400 text-label-caps border border-green-800/50">PAID</span>
+</td>
+<td class="p-6 text-right">
+<button class="text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Pagination -->
+<div class="p-stack-lg bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
+<p class="text-label-md text-on-surface-variant">Showing 4 of 24 transactions</p>
+<div class="flex gap-2">
+<button class="p-2 border border-white/10 text-on-surface-variant hover:text-white disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 border border-white/10 text-on-surface-variant hover:text-white">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Promotional/CTA Section -->
+<section class="mt-stack-xl grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="relative min-h-[250px] overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-action, desaturated photograph of a karate athlete performing a powerful side kick during a championship match. The lighting is dramatic, with bright spotlights creating sharp silhouettes. Overlaid is a subtle gold gradient, reinforcing the athletic minimalism and corporate luxury aesthetic of the World Karate Federation." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCf5WvBc8CHcpdSTD25U3nAi3f3MhfrsJN-9UvqcBg2jEkgDeEcISZTrq0w8e6E9NCm5Fqgv6squb8YoeMf5He-89kTJ4GzdNhNHWiQdhJmu8Wo5QldIwDL5yLy93yjKgvpgHx5mn7tw_p4Ntg0U9YFJiAbFgzyDNyLkDsd0JTcZPtmZOA09TeGkgROx15RHmPaAA97xF-nDHNmLI_27PFTaZqyVUgPHGF0GKO9Z4z7MhHKBg-JbZE2-OBMQQPA9uFH5-fInf9hH1dq')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-stack-lg z-10">
+<h4 class="font-headline-md text-headline-md text-white mb-2">Official Merchandise Store</h4>
+<p class="text-body-md text-on-surface-variant mb-4">Use your balance for official WKF gear and competition equipment.</p>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 font-bold font-label-caps hover:brightness-110 transition-all">SHOP NOW</button>
+</div>
+</div>
+<div class="glass-card p-stack-lg flex flex-col justify-center border-2 border-dashed border-white/10 hover:border-tertiary/40 transition-all">
+<div class="flex items-start gap-4">
+<div class="bg-tertiary text-on-tertiary p-3">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Secure Billing</h4>
+<p class="text-body-md text-on-surface-variant">All transactions are encrypted and processed through our verified international gateway. Need an official invoice for federation reimbursement?</p>
+<button class="mt-4 border-2 border-white text-white px-6 py-2 font-bold font-label-caps hover:bg-white hover:text-black transition-all">REQUEST BULK EXPORT</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Simple micro-interaction script -->
+<script>
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.classList.add('gold-glow');
+        });
+
+        // Search Bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        if(searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('border-tertiary');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('border-tertiary');
+            });
+        }
+    </script>
+</body></html>

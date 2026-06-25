@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WKF Official Platform | Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-glow:hover {
+            box-shadow: 0 0 15px rgba(233, 195, 73, 0.3);
+            border-color: #e9c349 !important;
+        }
+        .input-focus-gold:focus {
+            outline: none;
+            border-color: #e9c349 !important;
+            box-shadow: 0 0 0 1px #e9c349;
+        }
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar { width: 0px; }
+        
+        .tab-active {
+            color: #e9c349;
+            border-bottom: 2px solid #e9c349;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#353535",
+                      "on-primary-container": "#757575",
+                      "on-tertiary-fixed": "#241a00",
+                      "on-background": "#e5e2e1",
+                      "surface-container": "#20201f",
+                      "surface-bright": "#393939",
+                      "on-error": "#690005",
+                      "tertiary-container": "#000000",
+                      "inverse-on-surface": "#313030",
+                      "surface": "#131313",
+                      "tertiary-fixed-dim": "#e9c349",
+                      "secondary": "#c6c6c7",
+                      "surface-container-low": "#1c1b1b",
+                      "primary-fixed": "#e2e2e2",
+                      "background": "#131313",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "outline": "#988e90",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "surface-dim": "#131313",
+                      "surface-container-lowest": "#0e0e0e",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "on-tertiary": "#3c2f00",
+                      "primary-container": "#000000",
+                      "primary": "#c6c6c6",
+                      "on-primary": "#303030",
+                      "tertiary-fixed": "#ffe088",
+                      "secondary-container": "#454747",
+                      "on-secondary-fixed-variant": "#454747",
+                      "inverse-surface": "#e5e2e1",
+                      "on-surface": "#e5e2e1",
+                      "surface-container-highest": "#353535",
+                      "error": "#ffb4ab",
+                      "surface-container-high": "#2a2a2a",
+                      "tertiary": "#e9c349",
+                      "on-tertiary-container": "#8f7200",
+                      "on-surface-variant": "#cfc4c5",
+                      "on-secondary-container": "#b4b5b5",
+                      "error-container": "#93000a",
+                      "on-secondary": "#2f3131",
+                      "on-primary-fixed": "#1b1b1b",
+                      "outline-variant": "#4c4546",
+                      "on-error-container": "#ffdad6",
+                      "inverse-primary": "#5e5e5e",
+                      "on-primary-fixed-variant": "#474747",
+                      "surface-tint": "#c6c6c6",
+                      "secondary-fixed": "#e2e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-lg": "32px",
+                      "gutter": "24px",
+                      "stack-md": "16px",
+                      "margin-mobile": "20px",
+                      "stack-sm": "8px",
+                      "container-max": "1280px",
+                      "stack-xl": "64px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "headline-xl-mobile": ["Montserrat"],
+                      "headline-lg": ["Montserrat"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Montserrat"],
+                      "label-md": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "headline-xl": ["Montserrat"]
+              },
+              "fontSize": {
+                      "headline-xl-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-black text-on-surface font-body-md overflow-x-hidden selection:bg-tertiary selection:text-black">
+<!-- Hero Background with Shader/Overlay -->
+<div class="fixed inset-0 z-0">
+<!-- High-action karate photography treated with desaturation -->
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity" data-alt="A dramatic, high-contrast black and white action shot of a karate practitioner performing a high kick. The background is a dark, moody dojo with atmospheric dust particles caught in a single shaft of light. The image is desaturated with deep blacks and sharp highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB9RT3jYYlRNW2Y1LF5JJQjaFQRfTxeXxlX239TtVcBBbPXndEbsdd-J53Mn_Wi3HxcmkQbgHKl1TDXqVrtO8ZU63KG4MU6zvTI-9nuy3RP3vlKWVw10kSWSr7qAoDZD8A0NrhigAwkv54ga6mHSE66XWhS2zl29F3M6sLWMWifaU8J6OMSFnhxWNUNMx4m8WdNOC4bvaIvgj8zRDjUnnLM7nPd6IpJC--MDaAxadRoocu3M56bTgnVQvtq2FJfL8-0nSKaRDaYMA66')"></div>
+<!-- WebGL atmospheric overlay for depth -->
+
+<!-- Gradient vignette for focus -->
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 min-h-screen flex items-center justify-center px-margin-mobile md:px-margin-desktop py-stack-xl">
+<div class="w-full max-w-[480px] space-y-stack-lg">
+<!-- Identity Header -->
+<div class="text-center space-y-stack-sm">
+<img alt="WKF Logo" class="h-20 mx-auto mb-stack-md brightness-0 invert opacity-90" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<h1 class="font-headline-md text-headline-md text-white uppercase tracking-wider">World Karate Federation</h1>
+<p class="font-label-caps text-label-caps text-tertiary tracking-widest">Official Platform</p>
+</div>
+<!-- Login Container (Bento-style single cell) -->
+<div class="bg-surface-container border border-white/10 p-stack-lg shadow-2xl backdrop-blur-sm">
+<!-- Dynamic Content Area -->
+<div id="login-form-container">
+<!-- Role Switcher -->
+<div class="flex border-b border-outline-variant mb-stack-lg">
+<button class="flex-1 py-3 font-label-caps text-label-caps uppercase transition-all tab-active" id="tab-Athlete" onclick="switchRole('Athlete')">Athlete</button>
+<button class="flex-1 py-3 font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-white transition-all" id="tab-Coach" onclick="switchRole('Coach')">Coach</button>
+<button class="flex-1 py-3 font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-white transition-all" id="tab-Official" onclick="switchRole('Official')">Official</button>
+</div>
+<div class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-white mb-1" id="greeting-title">Welcome, Athlete</h2>
+<p class="font-label-md text-label-md text-on-surface-variant" id="greeting-subtitle">Enter your credentials to access your global rankings and performance stats.</p>
+</div>
+<!-- Inputs -->
+<form class="space-y-stack-md" onsubmit="event.preventDefault();">
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">WKF License ID</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-white/20 text-white px-4 py-3 font-body-md input-focus-gold transition-all placeholder:text-on-surface-variant/40" placeholder="e.g. WKF-882910" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-tertiary/50">fingerprint</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Password</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-white/20 text-white px-4 py-3 font-body-md input-focus-gold transition-all placeholder:text-on-surface-variant/40" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-tertiary/50">lock</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-2">
+<label class="flex items-center space-x-2 cursor-pointer group">
+<div class="w-4 h-4 border border-white/30 bg-transparent flex items-center justify-center group-hover:border-tertiary transition-colors">
+<div class="w-2 h-2 bg-tertiary hidden" id="remember-check"></div>
+</div>
+<input class="hidden" onchange="document.getElementById('remember-check').classList.toggle('hidden')" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface-variant select-none">Remember Me</span>
+</label>
+<a class="font-label-md text-label-md text-tertiary hover:underline" href="#">Forgot Password?</a>
+</div>
+<button class="w-full bg-tertiary text-black font-headline-md text-[16px] font-bold py-4 uppercase tracking-widest gold-glow transition-all active:scale-[0.98]">
+                            Enter Arena
+                        </button>
+</form>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="grid grid-cols-2 gap-gutter pt-stack-md">
+<a class="flex items-center justify-center space-x-2 border border-white/10 p-3 hover:bg-white/5 transition-all group" href="#">
+<span class="material-symbols-outlined text-tertiary group-hover:scale-110 transition-transform">how_to_reg</span>
+<span class="font-label-caps text-label-caps text-white">License Application</span>
+</a>
+<a class="flex items-center justify-center space-x-2 border border-white/10 p-3 hover:bg-white/5 transition-all group" href="#">
+<span class="material-symbols-outlined text-tertiary group-hover:scale-110 transition-transform">help</span>
+<span class="font-label-caps text-label-caps text-white">Support Center</span>
+</a>
+</div>
+<!-- Language & Compliance -->
+<div class="flex justify-between items-center px-2 opacity-50">
+<p class="font-label-caps text-[10px] uppercase text-white">© 2024 WKF Official</p>
+<div class="flex space-x-4">
+<button class="font-label-caps text-[10px] uppercase text-white hover:text-tertiary transition-colors">English (GB)</button>
+<button class="font-label-caps text-[10px] uppercase text-white hover:text-tertiary transition-colors">Privacy</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Atmosphere Elements -->
+<div class="fixed top-12 right-12 opacity-10 pointer-events-none hidden md:block">
+<h2 class="text-[120px] font-extrabold text-white leading-none">KARATE</h2>
+</div>
+<div class="fixed bottom-12 left-12 opacity-10 pointer-events-none hidden md:block">
+<h2 class="text-[120px] font-extrabold text-white leading-none">UNITY</h2>
+</div>
+<script>
+        function switchRole(role) {
+            // Update tabs
+            ['Athlete', 'Coach', 'Official'].forEach(r => {
+                const el = document.getElementById(`tab-${r}`);
+                el.classList.remove('tab-active', 'text-tertiary');
+                el.classList.add('text-on-surface-variant');
+            });
+            const activeTab = document.getElementById(`tab-${role}`);
+            activeTab.classList.add('tab-active');
+            activeTab.classList.remove('text-on-surface-variant');
+
+            // Update Text
+            const title = document.getElementById('greeting-title');
+            const subtitle = document.getElementById('greeting-subtitle');
+
+            if (role === 'Athlete') {
+                title.innerText = 'Welcome, Athlete';
+                subtitle.innerText = 'Enter your credentials to access your global rankings and performance stats.';
+            } else if (role === 'Coach') {
+                title.innerText = 'Dojo Management';
+                subtitle.innerText = 'Access trainer tools, athlete rosters, and competition schedules.';
+            } else {
+                title.innerText = 'Official Registry';
+                subtitle.innerText = 'Secure portal for tournament referees, judges, and administrative staff.';
+            }
+
+            // Simple transition effect
+            const container = document.getElementById('login-form-container');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                container.style.opacity = '1';
+                container.style.transition = 'opacity 0.3s ease';
+            }, 50);
+        }
+
+        // Initialize micro-interactions
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').style.color = '#e9c349';
+                input.parentElement.querySelector('.material-symbols-outlined').style.opacity = '1';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('.material-symbols-outlined').style.color = '';
+                input.parentElement.querySelector('.material-symbols-outlined').style.opacity = '0.5';
+            });
+        });
+    </script>
+</body></html>

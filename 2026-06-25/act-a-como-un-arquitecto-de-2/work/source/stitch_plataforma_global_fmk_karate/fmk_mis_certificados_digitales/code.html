@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WKF | Digital Certificates Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Montserrat:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e2e2e2",
+                    "secondary-container": "#454747",
+                    "on-primary-container": "#757575",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-dim": "#131313",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-highest": "#353535",
+                    "inverse-on-surface": "#313030",
+                    "tertiary": "#e9c349",
+                    "on-primary-fixed-variant": "#474747",
+                    "surface-container": "#20201f",
+                    "secondary": "#c6c6c7",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#000000",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#393939",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-surface": "#e5e2e1",
+                    "surface-variant": "#353535",
+                    "outline-variant": "#4c4546",
+                    "on-tertiary-container": "#8f7200",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-surface-variant": "#cfc4c5",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed": "#1b1b1b",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "primary-container": "#000000",
+                    "on-secondary": "#2f3131",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffe088",
+                    "inverse-primary": "#5e5e5e",
+                    "surface-tint": "#c6c6c6",
+                    "outline": "#988e90",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-error": "#690005",
+                    "on-primary": "#303030",
+                    "background": "#131313",
+                    "primary": "#c6c6c6",
+                    "on-tertiary": "#3c2f00",
+                    "secondary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "20px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "stack-xl": "64px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "headline-xl-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .certificate-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .certificate-card:hover {
+            border-color: #e9c349;
+            background-color: #1a1a1a;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0e0e0e;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e9c349;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- Side Navigation Shell -->
+<nav class="h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-background dark:bg-background flex flex-col py-stack-md z-[60] hidden md:flex">
+<div class="px-6 mb-stack-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-tertiary uppercase">WKF</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Official Platform</p>
+</div>
+<div class="flex-grow space-y-2">
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mr-3">newspaper</span> News
+            </a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mr-3">event</span> Events
+            </a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mr-3">military_tech</span> Rankings
+            </a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-tertiary transition-colors duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mr-3">groups</span> Athletes
+            </a>
+<!-- Active Tab: Digital Vault/Settings context -->
+<a class="flex items-center px-6 py-3 text-tertiary font-bold border-r-2 border-tertiary bg-surface-container-high transition-colors duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">workspace_premium</span> Certificates
+            </a>
+</div>
+<div class="px-6 mt-auto pt-6 border-t border-outline-variant/30">
+<a class="flex items-center py-3 text-on-surface-variant hover:text-tertiary transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mr-3">help</span> Help
+            </a>
+<a class="flex items-center py-3 text-on-surface-variant hover:text-tertiary transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mr-3">logout</span> Logout
+            </a>
+</div>
+</nav>
+<!-- Top App Bar -->
+<header class="docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-margin-desktop h-20 bg-background border-b border-outline-variant md:ml-64 md:max-w-[calc(100%-16rem)]">
+<h2 class="font-headline-md text-headline-md font-extrabold uppercase tracking-tight text-tertiary">Certificates Vault</h2>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-lowest border border-outline-variant px-4 py-2 text-sm w-64 focus:border-tertiary outline-none transition-colors" placeholder="Search grades, years..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant scale-90">search</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface cursor-pointer hover:text-tertiary transition-colors active:scale-95">notifications</span>
+<div class="h-10 w-10 border border-tertiary p-0.5 cursor-pointer active:scale-95">
+<img class="w-full h-full object-cover" data-alt="Close-up professional portrait of a senior karate master in a traditional white gi against a dark, dramatic background. The lighting is focused and cinematic, highlighting the discipline and prestige of the World Karate Federation. The aesthetic is sharp, corporate luxury with a focused, intense emotional tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3rPO1ka1oAm3fnkKYsDoYcw9SqXcM8ZDyao6D5wBhfw77ehDfJWr0mlazaDov7jZd-9zfdPayMgDhS1_svx1CRyoW_tbN8cFLvApT-MdbR-2kH3ZjcAMp17Up1vtvWLu_NBvdSua1upjn2doPEBq7rqvotwvjwyjr271pbNtRzcZbU45UlH_cQHc6NokfkWxzIlEbGeZja0dr5Cm8495W9ij24g4hoEpzh9RitClODjeQPVW6Lv1WdNeeMSGfw7j7nEUgXbnTF60s"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="md:ml-64 min-h-screen p-margin-desktop bg-background">
+<!-- Header & Filter Row -->
+<div class="mb-stack-xl flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div>
+<p class="font-label-caps text-label-caps text-tertiary mb-2 uppercase tracking-widest">Atheltic Credentials</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Verified Achievements</h3>
+</div>
+<div class="flex gap-4">
+<select class="bg-surface-container text-on-surface border border-outline-variant font-label-md text-label-md px-4 py-2 focus:border-tertiary outline-none">
+<option>All Years</option>
+<option>2024</option>
+<option>2023</option>
+<option>2022</option>
+</select>
+<select class="bg-surface-container text-on-surface border border-outline-variant font-label-md text-label-md px-4 py-2 focus:border-tertiary outline-none">
+<option>All Grades</option>
+<option>Black Belt</option>
+<option>Brown Belt</option>
+</select>
+</div>
+</div>
+<!-- Certificates Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Certificate Card 1 -->
+<div class="certificate-card border border-outline-variant bg-surface-container-low p-6 flex flex-col group">
+<div class="relative w-full aspect-[1.414/1] bg-surface-container-highest mb-6 overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A highly detailed digital preview of an official World Karate Federation 4th Dan Black Belt certificate. The design features elegant gold leaf filigree on premium parchment-style paper, official red stamps, and crisp black calligraphy. The scene is presented in a professional studio setting with soft side-lighting that emphasizes the texture of the paper and the reflective gold elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlk3GSwwWv9oEb_kpPdH9Jj1osRjgGJtKGVCt9IUwMtvBwQyiCyjT1XMSzfO9Q_cthJwIl3HUCcLKyoUc9tpXO1_AZFTuRY9sOij4oG4qNz-mpJsX_PW4ToP4-GrsugZnqJHl4Hb1084pYNFuaYyKM1MQSAYcIgx07Zh_g2Zz3rfA9I_jZKgtCdPDPe05FFqpDmqy7_6dhQ95wrtZ1TGe3yalIgA4pyuv7g2kJ6hFD7fYknJ0uHwUH48sIWy82zWOiHu8xZAnGUb4F"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<span class="bg-tertiary text-on-tertiary-fixed font-label-caps text-label-caps px-3 py-1">VERIFIED</span>
+</div>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">4th Dan Black Belt</h4>
+<p class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Accredited: Oct 2023 • ID: WKF-8829</p>
+</div>
+<div class="grid grid-cols-3 gap-2 border-t border-outline-variant/30 pt-6">
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn">
+<span class="material-symbols-outlined text-on-surface-variant group-hover/btn:text-tertiary">visibility</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant group-hover/btn:text-tertiary uppercase">View</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn">
+<span class="material-symbols-outlined text-on-surface-variant group-hover/btn:text-tertiary">download</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant group-hover/btn:text-tertiary uppercase">Save</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn" onclick="toggleQR()">
+<span class="material-symbols-outlined text-on-surface-variant group-hover/btn:text-tertiary">qr_code_2</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant group-hover/btn:text-tertiary uppercase">Verify</span>
+</button>
+</div>
+</div>
+<!-- Certificate Card 2 (Gold Status) -->
+<div class="certificate-card border-2 border-tertiary bg-surface-container-low p-6 flex flex-col group">
+<div class="relative w-full aspect-[1.414/1] bg-surface-container-highest mb-6 overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A premium high-resolution scan of a World Karate Federation championship gold medal certificate. The layout is minimalist and luxurious, featuring deep black text on a crisp white surface with an embossed gold seal. The image captures the prestigious and authoritative nature of the organization, lit with clean, high-key museum-style lighting for a professional sports authority aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdmZEP1XzFON-sJPEt6Bi6bmL4EBEvdqepdZsh8txLEzEsuaTjj5hHs9cGsNUTbf46OVrIM3KYiLMOvwt_DnGYG31jJM_mIgTT4EuLzukYEgPrjBD68trTaXmvs67BIj2NYBmJvk_0BcLqJvWOVupd74P7JQimnGUDvX5NFhHB6ZMp7goSA9J5rIVaimIZ4ewrgLGziISDyH-ev3jyBDNBCKjwpjdbGIIXareP5ZutHH3NG3CxU51iQyY-YbEkdNla27GKecZBMO_-"/>
+<div class="absolute top-4 right-4 bg-tertiary text-on-tertiary-fixed p-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">World Championship Gold</h4>
+<p class="font-label-md text-label-md text-tertiary mb-6 uppercase tracking-wider">Elite Rank • Tokyo 2022 • ID: WKF-E001</p>
+</div>
+<div class="grid grid-cols-3 gap-2 border-t border-tertiary/30 pt-6">
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn">
+<span class="material-symbols-outlined text-tertiary">visibility</span>
+<span class="font-label-caps text-[10px] text-tertiary uppercase">View</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn">
+<span class="material-symbols-outlined text-tertiary">download</span>
+<span class="font-label-caps text-[10px] text-tertiary uppercase">Save</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn" onclick="toggleQR()">
+<span class="material-symbols-outlined text-tertiary">qr_code_2</span>
+<span class="font-label-caps text-[10px] text-tertiary uppercase">Verify</span>
+</button>
+</div>
+</div>
+<!-- Certificate Card 3 -->
+<div class="certificate-card border border-outline-variant bg-surface-container-low p-6 flex flex-col group">
+<div class="relative w-full aspect-[1.414/1] bg-surface-container-highest mb-6 overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A digital representation of an instructor qualification certificate from the World Karate Federation. The document features complex geometric security patterns in the background and official signatures. It is set against a dark architectural surface with dramatic shadows, conveying a sense of authority, tradition, and global sporting excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPMvf2mSTYu5OXy2J26GLchJla5X3XuxXNJJZcHjiIh5hZFK8hFKOZnaKrSTcb1cV57QwcYdiQN8iJ78Q4v3TA7SoRXIhmEZXcYi88Ues-AIvOyuHvadVkRWtbjqK6ImW_yYPb4RQYT9FBahVuuGSbGWSMnE6vUI9OFBtldv89lFP7kgQaN9IHJIWFwEPcsKuDDoqN1uEmR_ZJVXVXhXclMa8AtWxq3guNT2S9yAJMdABN9G36tCOCZjuCZ-ZoA1yISdHWBHf4m7Lg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<span class="bg-surface-container-highest text-on-surface font-label-caps text-label-caps px-3 py-1">LEVEL II</span>
+</div>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">Official WKF Instructor</h4>
+<p class="font-label-md text-label-md text-on-surface-variant mb-6 uppercase tracking-wider">Certified: June 2021 • ID: WKF-I772</p>
+</div>
+<div class="grid grid-cols-3 gap-2 border-t border-outline-variant/30 pt-6">
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn">
+<span class="material-symbols-outlined text-on-surface-variant group-hover/btn:text-tertiary">visibility</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant group-hover/btn:text-tertiary uppercase">View</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn">
+<span class="material-symbols-outlined text-on-surface-variant group-hover/btn:text-tertiary">download</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant group-hover/btn:text-tertiary uppercase">Save</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 py-2 hover:bg-tertiary/10 transition-colors group/btn" onclick="toggleQR()">
+<span class="material-symbols-outlined text-on-surface-variant group-hover/btn:text-tertiary">qr_code_2</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant group-hover/btn:text-tertiary uppercase">Verify</span>
+</button>
+</div>
+</div>
+<!-- Empty State Card / Placeholder for Next -->
+<div class="border border-dashed border-outline-variant bg-transparent p-6 flex flex-col items-center justify-center group cursor-pointer hover:border-tertiary transition-colors">
+<span class="material-symbols-outlined text-outline text-5xl mb-4 group-hover:text-tertiary transition-colors">add_circle</span>
+<p class="font-headline-md text-headline-md text-outline group-hover:text-tertiary">Request New Certificate</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-center mt-2">Submit grading evidence for official WKF digital verification.</p>
+</div>
+</div>
+<!-- Verification Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm hidden px-margin-mobile" id="qr-modal">
+<div class="bg-surface-container border-2 border-tertiary p-8 max-w-sm w-full relative">
+<button class="absolute -top-12 right-0 text-white flex items-center gap-2 hover:text-tertiary" onclick="toggleQR()">
+<span class="material-symbols-outlined">close</span> CLOSE
+                </button>
+<div class="text-center mb-8">
+<h5 class="font-headline-md text-headline-md text-tertiary mb-2 uppercase">Official Verification</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Scan to verify this credential via the WKF Blockchain Ledger.</p>
+</div>
+<div class="bg-white p-4 w-48 h-48 mx-auto mb-8 border border-outline-variant">
+<img class="w-full h-full object-contain" data-alt="A clean, high-contrast QR code centered on a white background. The QR code has integrated World Karate Federation branding in the center. The image is crisp and professional, symbolizing secure digital verification and high-tech athletic administration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyMLIm-et0u3kCz9yX3EDR2wVkY-uX214BMft326FNl0EBBN0E_WJ4Mid_T5wfqiKPP3rgd35NfPEBQ_YZqBVtCQ78m62hcAhAWX0fH-n0niQN9sv9t5B636OIbFX0OM_psnVZTgdWk0OL_8jHYMSFgQoNvJpqSrNSWB2JWSbs0MAyqf6pYVKTHoZyJHX6Wp-Durs62WYc5xxBxRCIFpGuqF5B-rskVCuiKbKQXRgsVzqv7PDBi4jXkWeGlIoK5yw4mQ1UJLWOyyIo"/>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between border-b border-outline-variant py-2">
+<span class="text-on-surface-variant font-label-caps">Status</span>
+<span class="text-tertiary font-bold">AUTHENTIC</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant py-2">
+<span class="text-on-surface-variant font-label-caps">Last Synced</span>
+<span class="text-on-surface">2 Minutes Ago</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-outline-variant h-16 flex justify-around items-center z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-tertiary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-[8px]">HOME</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-tertiary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-caps text-[8px]">VAULT</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-tertiary" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-caps text-[8px]">RANKS</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-tertiary" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-[8px]">PROFILE</span>
+</a>
+</nav>
+<script>
+        function toggleQR() {
+            const modal = document.getElementById('qr-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('qr-modal');
+                if (!modal.classList.contains('hidden')) modal.classList.add('hidden');
+            }
+        });
+
+        // Add micro-interaction to cards
+        const cards = document.querySelectorAll('.certificate-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const img = card.querySelector('img');
+                if(img) img.style.transform = 'scale(1.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const img = card.querySelector('img');
+                if(img) img.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>
